@@ -44,8 +44,10 @@ class MainActivity : AppCompatActivity(), MainContracts.View {
         binding.apply {
             //Set Action View
             setSupportActionBar(notesToolbar)
-            //Note detail
-            addNoteBtn.setOnClickListener { NoteFragment().show(supportFragmentManager,NoteFragment().tag) }
+            //Note
+            addNoteBtn.setOnClickListener {
+                NoteFragment().show(supportFragmentManager,NoteFragment().tag)
+            }
             //load All Notes
             presenter.loadAllNotes()
             //Clicks
@@ -96,6 +98,7 @@ class MainActivity : AppCompatActivity(), MainContracts.View {
     }
 
     override fun deleteMessage() {
+        //Toast.makeText(this, ""+ selectedItem, Toast.LENGTH_LONG).show()
         Snackbar.make(binding.root, getString(R.string.deleted), Snackbar.LENGTH_SHORT).show()
     }
 

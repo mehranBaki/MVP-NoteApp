@@ -18,7 +18,7 @@ class NoteAdapter @Inject constructor() : RecyclerView.Adapter<NoteAdapter.ViewH
 
     private lateinit var binding: ItemNotesBinding
     private lateinit var context: Context
-    private var moviesList = emptyList<NoteEntity>()
+    private var notesList = emptyList<NoteEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemNotesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,15 +28,22 @@ class NoteAdapter @Inject constructor() : RecyclerView.Adapter<NoteAdapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //getItem
-        holder.bind(moviesList[position])
+        holder.bind(notesList[position])
         //No duplication items
         holder.setIsRecyclable(false)
     }
 
-    override fun getItemCount() = moviesList.size
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemCount() = notesList.size
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
-
         @SuppressLint("SetTextI18n")
         fun bind(item: NoteEntity) {
             binding.apply {
@@ -88,9 +95,9 @@ class NoteAdapter @Inject constructor() : RecyclerView.Adapter<NoteAdapter.ViewH
     }
 
     fun setData(data: List<NoteEntity>) {
-        val moviesDiffUtil = NotesDiffUtils(moviesList, data)
+        val moviesDiffUtil = NotesDiffUtils(notesList, data)
         val diffUtils = DiffUtil.calculateDiff(moviesDiffUtil)
-        moviesList = data
+        notesList = data
         diffUtils.dispatchUpdatesTo(this)
     }
 

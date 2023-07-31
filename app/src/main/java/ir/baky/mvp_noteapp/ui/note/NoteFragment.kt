@@ -65,7 +65,7 @@ class NoteFragment : BottomSheetDialogFragment(), NoteContracts.View {
             prioritiesSpinnerItems()
             //set default value
             if (type == EDIT) {
-                saveNote.setText(R.string.submit)
+                saveNote.setText(R.string.update)
                 presenter.detailNote(noteId)
             }
             //Save btn
@@ -142,7 +142,6 @@ class NoteFragment : BottomSheetDialogFragment(), NoteContracts.View {
             }
         }
     }
-
 
     private fun getIndex(list: Array<String>, item: String): Int {
         var index = 0

@@ -10,7 +10,7 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="foods">Foods</string>
-    <string name="submit">Submit</string>
+    <string name="update">Update</string>
 
     <string name="search">Search…</string>
     <string name="checkInternet">Please Check Your Connection</string>
