@@ -61,7 +61,7 @@ class MainPresenter @Inject constructor(private val repository: MainRepository, 
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     if (it.isNotEmpty()) {
-                        Log.e("Method: ","searchNote")
+                        //Log.e("Method: ","searchNote")
                         view.showAllNotes(it)
                     }else{
                         view.showEmpty()
