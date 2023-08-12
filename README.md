@@ -1,5 +1,5 @@
 # MVP-NoteApp
-I developed an Android "Note Application" under the MVP architecture using the RxJava, Room, and Dagger-Hilt.
+An Android "Note Application" under the MVP architecture using RxJava, Room, and Dagger-Hilt.
 
 App Screenshots 1:
 
